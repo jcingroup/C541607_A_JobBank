@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_register"
+    android:weightSum="1">
+
+    <EditText
+        android:id="@+id/vn_no"
+        android:layout_height="wrap_content"
+        android:hint="@string/identy"
+        android:inputType="textCapCharacters"
+        android:digits="-0123456789ABCDEFGHIJKLIMNOPQRSTUVWXYZ"
+        android:layout_width="fill_parent">
+    </EditText>
+
+    <EditText
+        android:id="@+id/applicants_password"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:layout_width="fill_parent">
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/last_name"
+        android:layout_height="wrap_content"
+        android:hint="@string/last_name"
+        android:inputType="textPersonName"
+        android:layout_width="fill_parent">
+    </EditText>
+
+    <EditText
+        android:id="@+id/given_name"
+        android:layout_height="wrap_content"
+        android:hint="@string/given_name"
+        android:inputType="textPersonName"
+        android:layout_width="fill_parent">
+    </EditText>
+
+    <EditText
+        android:id="@+id/tel"
+        android:layout_height="wrap_content"
+        android:hint="@string/tel"
+        android:inputType="phone"
+        android:layout_width="fill_parent">
+    </EditText>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="@string/birthday"
+        android:focusable="false"
+        android:id="@+id/birthday" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:id="@+id/email" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="確定註冊"
+        android:id="@+id/btn_submit_register" />
+
+</LinearLayout>

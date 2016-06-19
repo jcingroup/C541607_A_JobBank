@@ -17,4 +17,27 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-->
+        <style name="WindowTitleBackground">
+            <item name="android:background">#0000FF</item>
+            <item name="android:textColor">#e70101</item>
+        </style>
+
+        <style name="WindowTitleBackground2">
+            <item name="android:background">#ff7300</item>
+            <item name="android:textColor">#06712f</item>
+        </style>
+    </!-->
+
+
+    <style name="AlertTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#FFC107</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:background">#af4c4c</item>
+        <!-->
+            <item name="android:windowTitleStyle">@style/WindowTitleBackground</item>
+            <item name="android:windowTitleBackgroundStyle">@style/WindowTitleBackground2</item>
+        </!-->
+
+    </style>
 </resources>

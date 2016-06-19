@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_oper">
+    tools:showIn="@layout/app_bar_oper"
+    android:id="@+id/operActivity">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_register_info"
-        android:id="@+id/button"
- />
+        android:id="@+id/btn_open_register"/>
 </LinearLayout>

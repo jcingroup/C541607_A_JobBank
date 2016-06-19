@@ -1,23 +1,26 @@
 package tw.com.vip_tjob;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
-public class OperActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class OperActivity extends BaseAppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, BaseAppCompatActivity.LoginInputListener {
 
-    private Button btn_Login;
+    private Button btn_Login, btn_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,11 @@ public class OperActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        btn_Login = (Button)findViewById(R.id.btn_login);
+        btn_Login = (Button) findViewById(R.id.btn_login);
+        btn_register = (Button) findViewById(R.id.btn_open_register);
         //btn_Login.setVisibility(View.INVISIBLE);
         btn_Login.setOnClickListener(this);
+        btn_register.setOnClickListener(this);
     }
 
     @Override
@@ -100,5 +105,51 @@ public class OperActivity extends AppCompatActivity
     @Override
     public void onClick(View v) {
 
+        if (v.getId() == R.id.btn_open_register) {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+        }
+
+        if (v.getId() == R.id.btn_login) {
+            FragmentManager manager = getSupportFragmentManager();
+            LoginDialogFragment dialog = (LoginDialogFragment) manager
+                    .findFragmentByTag("tag");
+            if (dialog == null) {
+                dialog = new LoginDialogFragment();
+                Bundle args = new Bundle();
+                args.putString("message", "Message");
+                dialog.setArguments(args);
+                dialog.show(manager, "tag");
+
+
+            }
+        }
+
+
+        //FragmentManager manager = getSupportFragmentManager();
+        //Fragment fragment = new RegisterFragment();
+
+        //FragmentTransaction transaction = manager.beginTransaction();
+        //transaction.add(R.id.operActivity, fragment);
+        //transaction.commit();
+        //Log.d("Hello!", "Run..");
+    }
+
+    @Override
+    public void onLoginInputComplete(String username, String password) {
+        Toast.makeText(getApplicationContext(), username + ":" + password, Toast.LENGTH_SHORT).show();
+    }
+
+    public static class RegisterFragment extends Fragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View v = inflater.inflate(R.layout.fragment_register, container, false);
+            return v;
+        }
     }
 }
