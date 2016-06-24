@@ -64,9 +64,9 @@ public class RegisterActivity extends BaseAppCompatActivity {
                 final String given_name = editText_given_name.getText().toString();
                 final String applicants_password = editText_applicants_password.getText().toString();
 
-                if(email.isEmpty()){
+                if (email.isEmpty()) {
                     editText_email.setError("欄位需填寫");
-                    ShowDialModal("欄位需填寫");
+                    ShowDialModalS(RegisterActivity.this, "欄位需填寫");
                     return;
                 }
 
@@ -79,7 +79,7 @@ public class RegisterActivity extends BaseAppCompatActivity {
                                 Gson gson = new Gson();
                                 ResultInfo rlt = gson.fromJson(response, ResultInfo.class);
 
-                                if(!rlt.result){
+                                if (!rlt.result) {
                                     Toast.makeText(getApplicationContext(), rlt.message, Toast.LENGTH_SHORT).show();
                                 }
 

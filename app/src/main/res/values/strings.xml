@@ -18,4 +18,7 @@
     <string name="email">電子郵件</string>
     <string name="last_name">姓</string>
     <string name="given_name">名</string>
+    <string name="login">登錄</string>
+    <string name="warn_request_account">帳號需填寫</string>
+    <string name="warn_request_password">密碼欄需填寫</string>
 </resources>

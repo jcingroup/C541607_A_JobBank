@@ -116,9 +116,11 @@ public class OperActivity extends BaseAppCompatActivity
                     .findFragmentByTag("tag");
             if (dialog == null) {
                 dialog = new LoginDialogFragment();
+                //dialog.se
                 Bundle args = new Bundle();
                 args.putString("message", "Message");
                 dialog.setArguments(args);
+                dialog.setCancelable(false);
                 dialog.show(manager, "tag");
 
 
@@ -136,8 +138,8 @@ public class OperActivity extends BaseAppCompatActivity
     }
 
     @Override
-    public void onLoginInputComplete(String username, String password) {
-        Toast.makeText(getApplicationContext(), username + ":" + password, Toast.LENGTH_SHORT).show();
+    public void onLoginInputComplete(String userName, String token) {
+        Toast.makeText(getApplicationContext(), userName + ":" + token, Toast.LENGTH_SHORT).show();
     }
 
     public static class RegisterFragment extends Fragment {
